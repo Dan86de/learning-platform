@@ -86,7 +86,6 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
-
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>

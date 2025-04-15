@@ -15,7 +15,7 @@ import { Route as AuthedImport } from './routes/_authed'
 import { Route as IndexImport } from './routes/index'
 import { Route as SignUpSplatImport } from './routes/sign-up.$'
 import { Route as SignInSplatImport } from './routes/sign-in.$'
-import { Route as AuthedProfileSplatImport } from './routes/_authed/profile.$'
+import { Route as AuthedProfileImport } from './routes/_authed/profile'
 
 // Create/Update Routes
 
@@ -42,9 +42,9 @@ const SignInSplatRoute = SignInSplatImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthedProfileSplatRoute = AuthedProfileSplatImport.update({
-  id: '/profile/$',
-  path: '/profile/$',
+const AuthedProfileRoute = AuthedProfileImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AuthedRoute,
 } as any)
 
@@ -66,6 +66,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedImport
       parentRoute: typeof rootRoute
     }
+    '/_authed/profile': {
+      id: '/_authed/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthedProfileImport
+      parentRoute: typeof AuthedImport
+    }
     '/sign-in/$': {
       id: '/sign-in/$'
       path: '/sign-in/$'
@@ -80,24 +87,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignUpSplatImport
       parentRoute: typeof rootRoute
     }
-    '/_authed/profile/$': {
-      id: '/_authed/profile/$'
-      path: '/profile/$'
-      fullPath: '/profile/$'
-      preLoaderRoute: typeof AuthedProfileSplatImport
-      parentRoute: typeof AuthedImport
-    }
   }
 }
 
 // Create and export the route tree
 
 interface AuthedRouteChildren {
-  AuthedProfileSplatRoute: typeof AuthedProfileSplatRoute
+  AuthedProfileRoute: typeof AuthedProfileRoute
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
-  AuthedProfileSplatRoute: AuthedProfileSplatRoute,
+  AuthedProfileRoute: AuthedProfileRoute,
 }
 
 const AuthedRouteWithChildren =
@@ -106,40 +106,40 @@ const AuthedRouteWithChildren =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
+  '/profile': typeof AuthedProfileRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
-  '/profile/$': typeof AuthedProfileSplatRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
+  '/profile': typeof AuthedProfileRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
-  '/profile/$': typeof AuthedProfileSplatRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_authed': typeof AuthedRouteWithChildren
+  '/_authed/profile': typeof AuthedProfileRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
-  '/_authed/profile/$': typeof AuthedProfileSplatRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/sign-in/$' | '/sign-up/$' | '/profile/$'
+  fullPaths: '/' | '' | '/profile' | '/sign-in/$' | '/sign-up/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/sign-in/$' | '/sign-up/$' | '/profile/$'
+  to: '/' | '' | '/profile' | '/sign-in/$' | '/sign-up/$'
   id:
     | '__root__'
     | '/'
     | '/_authed'
+    | '/_authed/profile'
     | '/sign-in/$'
     | '/sign-up/$'
-    | '/_authed/profile/$'
   fileRoutesById: FileRoutesById
 }
 
@@ -179,18 +179,18 @@ export const routeTree = rootRoute
     "/_authed": {
       "filePath": "_authed.tsx",
       "children": [
-        "/_authed/profile/$"
+        "/_authed/profile"
       ]
+    },
+    "/_authed/profile": {
+      "filePath": "_authed/profile.tsx",
+      "parent": "/_authed"
     },
     "/sign-in/$": {
       "filePath": "sign-in.$.tsx"
     },
     "/sign-up/$": {
       "filePath": "sign-up.$.tsx"
-    },
-    "/_authed/profile/$": {
-      "filePath": "_authed/profile.$.tsx",
-      "parent": "/_authed"
     }
   }
 }

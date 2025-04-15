@@ -4,9 +4,7 @@ import { Checkbox, CheckboxField } from "@/components/catalyst/checkbox";
 import { Field, Label } from "@/components/catalyst/fieldset";
 import { Heading } from "@/components/catalyst/heading";
 import { Input } from "@/components/catalyst/input";
-import { Select } from "@/components/catalyst/select";
 import { Strong, Text, TextLink } from "@/components/catalyst/text";
-import { GoogleOneTap } from "@clerk/tanstack-react-start";
 
 export const SignUp = () => {
   return (
@@ -22,7 +20,6 @@ export const SignUp = () => {
           className="mx-auto h-20 w-20 text-zinc-950 dark:text-white forced-colors:text-[CanvasText]"
         />
         <Heading>Create your account</Heading>
-        <GoogleOneTap />
         <Field>
           <Label>Email</Label>
           <Input type="email" name="email" />
