@@ -5,8 +5,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const router = useRouter();
-  const state = Route.useLoaderData();
-
-  return <h1 className="font-bold text-3xl underline">Hello world!</h1>;
+  return (
+    <div className="p-2">
+      <h1>Hello Clerk!</h1>
+    </div>
+  );
 }

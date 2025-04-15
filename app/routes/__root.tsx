@@ -5,9 +5,23 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import { ThemeProvider } from "@/lib/styles/theme-provider";
 import appCss from "@/lib/styles/app.css?url";
+import { ClerkProvider } from "@clerk/tanstack-react-start";
+import { getAuth } from "@clerk/tanstack-react-start/server";
+import { getWebRequest } from "@tanstack/react-start/server";
+import { DefaultCatchBoundary } from "@/components/default-catch-boundary";
+
+const fetchClerkAuth = createServerFn({ method: "GET" }).handler(async () => {
+  const { userId } = await getAuth(getWebRequest() as Request);
+
+  return {
+    userId,
+  };
+});
 
 export const Route = createRootRoute({
   head: () => ({
@@ -35,14 +49,30 @@ export const Route = createRootRoute({
     ],
   }),
 
+  beforeLoad: async () => {
+    const { userId } = await fetchClerkAuth();
+
+    return {
+      userId,
+    };
+  },
+  errorComponent: (props) => {
+    return (
+      <RootDocument>
+        <DefaultCatchBoundary {...props} />
+      </RootDocument>
+    );
+  },
   component: RootComponent,
 });
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
+    <ClerkProvider>
+      <RootDocument>
+        <Outlet />
+      </RootDocument>
+    </ClerkProvider>
   );
 }
 
@@ -56,6 +86,8 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+
+        <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
     </html>
