@@ -39,6 +39,7 @@ import {
   DropdownMenu,
 } from "@/components/catalyst/dropdown";
 import { Avatar } from "@/components/catalyst/avatar";
+import { ThemeSwitcher } from "@/lib/styles/theme-switcher";
 
 export const Route = createFileRoute("/_authed/app")({
   component: AppComponent,
@@ -55,6 +56,7 @@ function AppComponent() {
           <NavbarSpacer />
           <NavbarSection>
             <UserButton />
+            <ThemeSwitcher />
           </NavbarSection>
         </Navbar>
       }
@@ -77,6 +79,9 @@ function AppComponent() {
               </SidebarItem>
             </SidebarSection>
             <SidebarSpacer />
+            <div className="flex w-full items-center justify-center max-lg:hidden">
+              <ThemeSwitcher />
+            </div>
           </SidebarBody>
           <SidebarFooter className="max-lg:hidden">
             <Dropdown>

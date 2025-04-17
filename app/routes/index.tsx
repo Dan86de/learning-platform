@@ -23,7 +23,7 @@ function Home() {
         <p>You are signed out</p>
         <SignInButton />
       </SignedOut>
-      <Link to="/profile">Profile</Link>
+      <Link to="/app">App</Link>
     </div>
   );
 }
