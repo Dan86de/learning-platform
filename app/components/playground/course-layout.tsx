@@ -4,7 +4,9 @@ import * as Headless from "@headlessui/react";
 import type React from "react";
 import { useState } from "react";
 import { NavbarItem } from "@/components/catalyst/navbar";
-import { Link } from "../catalyst/link";
+import { Link } from "@/components/catalyst/link";
+import { Button } from "@/components/catalyst/button";
+import { cn } from "@/lib/utils";
 
 function OpenMenuIcon() {
   return (
@@ -58,12 +60,21 @@ export function CourseSidebarLayout({
   navbar: React.ReactNode;
   sidebar: React.ReactNode;
 }>) {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showDesktopSidebar, setShowDesktopSidebar] = useState(true);
+
+  console.log({ showSidebar });
 
   return (
     <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
       {/* Sidebar on desktop */}
-      <div className="fixed inset-y-0 left-0 w-68 bg-white max-lg:hidden lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+      <div
+        className={cn(
+          "fixed inset-y-0 w-68 bg-white transition-all duration-300 ease-in-out max-lg:hidden lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10",
+          !showDesktopSidebar && "-left-68",
+          showDesktopSidebar && "left-0",
+        )}
+      >
         {sidebar}
       </div>
 
@@ -89,8 +100,43 @@ export function CourseSidebarLayout({
       </header>
 
       {/* Content */}
-      <main className="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-70">
-        <div className="flex items-center justify-between bg-white p-3 lg:bg-zinc-100 dark:bg-zinc-950 dark:lg:bg-zinc-950">
+      <main
+        className={cn(
+          "flex flex-1 flex-col pb-2 transition-all duration-300 ease-in-out lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-70",
+          !showDesktopSidebar && "lg:pl-2",
+          showDesktopSidebar && "lg:pl-70",
+        )}
+      >
+        <div className="hidden items-center justify-between bg-white p-2 pb-4 lg:flex lg:bg-zinc-100 dark:bg-zinc-950 dark:lg:bg-zinc-950">
+          <Button
+            plain
+            className="cursor-pointer"
+            onClick={() => {
+              setShowDesktopSidebar((prev) => !prev);
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              className={cn(
+                "transition-all duration-200 ease-in-out",
+                !showDesktopSidebar && "rotate-180",
+                showDesktopSidebar && "rotate-0",
+              )}
+            >
+              <title>Open pane</title>
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                d="M14.25 4.75v14.5m-3-8.5L9.75 12l1.5 1.25m-4.5 6h10.5a2 2 0 0 0 2-2V6.75a2 2 0 0 0-2-2H6.75a2 2 0 0 0-2 2v10.5a2 2 0 0 0 2 2Z"
+              />
+            </svg>
+          </Button>
           <div className="grow-1" />
           <div className="flex gap-6 text-sm">
             <Link>Course</Link>
@@ -98,8 +144,8 @@ export function CourseSidebarLayout({
             <Link>Resources</Link>
           </div>
         </div>
-        <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-          <div className="mx-auto max-w-6xl">{children}</div>
+        <div className="grow p-6 lg:rounded-lg lg:bg-white lg:pt-14 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+          {children}
         </div>
       </main>
     </div>

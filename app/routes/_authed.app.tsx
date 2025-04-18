@@ -17,9 +17,11 @@ import {
 import { SidebarLayout } from "@/components/catalyst/sidebar-layout";
 import {
   ArrowRightStartOnRectangleIcon,
+  BookOpenIcon,
   ChevronUpIcon,
   Cog8ToothIcon,
   HomeIcon,
+  KeyIcon,
   LightBulbIcon,
   ShieldCheckIcon,
   UserIcon,
@@ -76,6 +78,13 @@ function AppComponent() {
               <SidebarItem href="/app">
                 <HomeIcon />
                 <SidebarLabel>Home</SidebarLabel>
+              </SidebarItem>
+            </SidebarSection>
+            <SidebarSection>
+              <SidebarLabel>Courses</SidebarLabel>
+              <SidebarItem href="/course/first">
+                <BookOpenIcon />
+                <SidebarLabel>Head Full of Code</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
             <SidebarSpacer />

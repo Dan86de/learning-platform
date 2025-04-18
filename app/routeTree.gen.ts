@@ -17,6 +17,7 @@ import { Route as SignUpSplatImport } from './routes/sign-up.$'
 import { Route as SignInSplatImport } from './routes/sign-in.$'
 import { Route as AuthedCourseImport } from './routes/_authed.course'
 import { Route as AuthedAppImport } from './routes/_authed.app'
+import { Route as AuthedCourseFirstImport } from './routes/_authed.course.first'
 import { Route as AuthedAppProfileImport } from './routes/_authed.app.profile'
 
 // Create/Update Routes
@@ -54,6 +55,12 @@ const AuthedAppRoute = AuthedAppImport.update({
   id: '/app',
   path: '/app',
   getParentRoute: () => AuthedRoute,
+} as any)
+
+const AuthedCourseFirstRoute = AuthedCourseFirstImport.update({
+  id: '/first',
+  path: '/first',
+  getParentRoute: () => AuthedCourseRoute,
 } as any)
 
 const AuthedAppProfileRoute = AuthedAppProfileImport.update({
@@ -115,6 +122,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedAppProfileImport
       parentRoute: typeof AuthedAppImport
     }
+    '/_authed/course/first': {
+      id: '/_authed/course/first'
+      path: '/first'
+      fullPath: '/course/first'
+      preLoaderRoute: typeof AuthedCourseFirstImport
+      parentRoute: typeof AuthedCourseImport
+    }
   }
 }
 
@@ -132,14 +146,26 @@ const AuthedAppRouteWithChildren = AuthedAppRoute._addFileChildren(
   AuthedAppRouteChildren,
 )
 
+interface AuthedCourseRouteChildren {
+  AuthedCourseFirstRoute: typeof AuthedCourseFirstRoute
+}
+
+const AuthedCourseRouteChildren: AuthedCourseRouteChildren = {
+  AuthedCourseFirstRoute: AuthedCourseFirstRoute,
+}
+
+const AuthedCourseRouteWithChildren = AuthedCourseRoute._addFileChildren(
+  AuthedCourseRouteChildren,
+)
+
 interface AuthedRouteChildren {
   AuthedAppRoute: typeof AuthedAppRouteWithChildren
-  AuthedCourseRoute: typeof AuthedCourseRoute
+  AuthedCourseRoute: typeof AuthedCourseRouteWithChildren
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedAppRoute: AuthedAppRouteWithChildren,
-  AuthedCourseRoute: AuthedCourseRoute,
+  AuthedCourseRoute: AuthedCourseRouteWithChildren,
 }
 
 const AuthedRouteWithChildren =
@@ -149,20 +175,22 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
   '/app': typeof AuthedAppRouteWithChildren
-  '/course': typeof AuthedCourseRoute
+  '/course': typeof AuthedCourseRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/app/profile': typeof AuthedAppProfileRoute
+  '/course/first': typeof AuthedCourseFirstRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
   '/app': typeof AuthedAppRouteWithChildren
-  '/course': typeof AuthedCourseRoute
+  '/course': typeof AuthedCourseRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/app/profile': typeof AuthedAppProfileRoute
+  '/course/first': typeof AuthedCourseFirstRoute
 }
 
 export interface FileRoutesById {
@@ -170,10 +198,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authed': typeof AuthedRouteWithChildren
   '/_authed/app': typeof AuthedAppRouteWithChildren
-  '/_authed/course': typeof AuthedCourseRoute
+  '/_authed/course': typeof AuthedCourseRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/_authed/app/profile': typeof AuthedAppProfileRoute
+  '/_authed/course/first': typeof AuthedCourseFirstRoute
 }
 
 export interface FileRouteTypes {
@@ -186,6 +215,7 @@ export interface FileRouteTypes {
     | '/sign-in/$'
     | '/sign-up/$'
     | '/app/profile'
+    | '/course/first'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -195,6 +225,7 @@ export interface FileRouteTypes {
     | '/sign-in/$'
     | '/sign-up/$'
     | '/app/profile'
+    | '/course/first'
   id:
     | '__root__'
     | '/'
@@ -204,6 +235,7 @@ export interface FileRouteTypes {
     | '/sign-in/$'
     | '/sign-up/$'
     | '/_authed/app/profile'
+    | '/_authed/course/first'
   fileRoutesById: FileRoutesById
 }
 
@@ -256,7 +288,10 @@ export const routeTree = rootRoute
     },
     "/_authed/course": {
       "filePath": "_authed.course.tsx",
-      "parent": "/_authed"
+      "parent": "/_authed",
+      "children": [
+        "/_authed/course/first"
+      ]
     },
     "/sign-in/$": {
       "filePath": "sign-in.$.tsx"
@@ -267,6 +302,10 @@ export const routeTree = rootRoute
     "/_authed/app/profile": {
       "filePath": "_authed.app.profile.tsx",
       "parent": "/_authed/app"
+    },
+    "/_authed/course/first": {
+      "filePath": "_authed.course.first.tsx",
+      "parent": "/_authed/course"
     }
   }
 }

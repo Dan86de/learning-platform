@@ -16,7 +16,7 @@ import {
 } from "@/components/playground/course-sidebar";
 import { ThemeSwitcher } from "@/lib/styles/theme-switcher";
 import { useUser } from "@clerk/tanstack-react-start";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_authed/course")({
   component: RouteComponent,
@@ -108,6 +108,8 @@ function RouteComponent() {
           </CourseSidebarBody>
         </CourseSidebar>
       }
-    />
+    >
+      <Outlet />
+    </CourseSidebarLayout>
   );
 }
