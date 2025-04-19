@@ -63,10 +63,8 @@ export function CourseSidebarLayout({
 	const [showSidebar, setShowSidebar] = useState(true);
 	const [showDesktopSidebar, setShowDesktopSidebar] = useState(true);
 
-	console.log({ showSidebar });
-
 	return (
-		<div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
+		<div className="relative isolate flex h-screen min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
 			{/* Sidebar on desktop */}
 			<div
 				className={cn(
@@ -102,7 +100,7 @@ export function CourseSidebarLayout({
 			{/* Content */}
 			<main
 				className={cn(
-					"flex flex-1 flex-col pb-2 transition-all duration-300 ease-in-out lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-70",
+					"flex flex-1 flex-col overflow-hidden pb-2 transition-all duration-300 ease-in-out lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-70",
 					!showDesktopSidebar && "lg:pl-2",
 					showDesktopSidebar && "lg:pl-70",
 				)}
@@ -144,7 +142,7 @@ export function CourseSidebarLayout({
 						<Link>Resources</Link>
 					</div>
 				</div>
-				<div className="relative isolate grow overflow-hidden p-6 lg:rounded-lg lg:bg-white lg:pt-14 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+				<div className="relative isolate grow p-6 lg:rounded-lg lg:bg-white lg:pt-14 lg:shadow-xs lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
 					{children}
 				</div>
 			</main>

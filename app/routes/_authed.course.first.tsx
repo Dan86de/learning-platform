@@ -16,7 +16,7 @@ function RouteComponent() {
 					className="aspect-video h-full max-h-[600px] w-full scale-150 object-cover lg:scale-100"
 				/>
 			</div>
-			<div className="border-zinc-950/5 border-b pb-40 dark:border-white/5">
+			<div className="border-zinc-950/5 border-b pb-12 md:pb-40 dark:border-white/5">
 				<Text className="text-2xl text-zinc-950 sm:text-3xl dark:text-white">
 					Course overview
 				</Text>
@@ -140,8 +140,171 @@ function RouteComponent() {
 					Start the course
 				</Button>
 			</div>
-			<div className="mt-10 grid grid-cols-[1fr_3fr] gap-4">
-				<Text className="pt-2 font-semibold text-zinc-950 dark:text-white">
+
+			<div className="mask-b-from-90% mask-t-from-90% mt-2 grid h-[calc(100vh-520px)] grid-cols-1 gap-4 overflow-y-auto py-14 md:h-[calc(100vh-640px)] md:grid-cols-[1fr_3fr]">
+				<Text className="pt-2 pb-4 font-semibold text-zinc-950 dark:text-white">
+					Part 1
+				</Text>
+				<div>
+					<div className="flex flex-col gap-6">
+						<Text className="font-semibold text-zinc-950 sm:text-3xl dark:text-white">
+							Orientation
+						</Text>
+						<Text className="text-zinc-500 dark:text-zinc-400">
+							Discover your internal compass and understand your decision-making
+							landscape
+						</Text>
+					</div>
+					<ul className="mt-6 flex flex-col gap-4">
+						<li>
+							<div className="flex items-center gap-2">
+								<div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-zinc-950/10 dark:border-white/10">
+									<svg
+										width="24"
+										height="24"
+										fill="none"
+										viewBox="0 0 24 24"
+										className="h-3 w-3 fill-zinc-900 pl-0.5"
+									>
+										<title>The landscape of choice</title>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
+											d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
+										/>
+									</svg>
+								</div>
+								<Text className="font-semibold text-zinc-950 sm:text-normal dark:text-white">
+									The landscape of choice
+								</Text>
+								<Text className="text-zinc-500 dark:text-zinc-400">15:23</Text>
+							</div>
+							<Text className="mt-2 pl-7">
+								Understanding the terrain of decision-making
+							</Text>
+						</li>
+						<li>
+							<div className="flex items-center gap-2">
+								<div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-zinc-950/10 dark:border-white/10">
+									<svg
+										width="24"
+										height="24"
+										fill="none"
+										viewBox="0 0 24 24"
+										className="h-3 w-3 fill-zinc-900 pl-0.5"
+									>
+										<title>The landscape of choice</title>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
+											d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
+										/>
+									</svg>
+								</div>
+								<Text className="font-semibold text-zinc-950 sm:text-normal dark:text-white">
+									Internal vs. external compass
+								</Text>
+								<Text className="text-zinc-500 dark:text-zinc-400">14:07</Text>
+							</div>
+							<Text className="mt-2 pl-7">
+								Learning to balance internal guidance with external input
+							</Text>
+						</li>
+						<li>
+							<div className="flex items-center gap-2">
+								<div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-zinc-950/10 dark:border-white/10">
+									<svg
+										width="24"
+										height="24"
+										fill="none"
+										viewBox="0 0 24 24"
+										className="h-3 w-3 fill-zinc-900 pl-0.5"
+									>
+										<title>The landscape of choice</title>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
+											d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
+										/>
+									</svg>
+								</div>
+								<Text className="font-semibold text-zinc-950 sm:text-normal dark:text-white">
+									The stories you're living
+								</Text>
+								<Text className="text-zinc-500 dark:text-zinc-400">16:18</Text>
+							</div>
+							<Text className="mt-2 pl-7">
+								Examining the narratives that shape your decisions
+							</Text>
+						</li>
+						<li>
+							<div className="flex items-center gap-2">
+								<div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-zinc-950/10 dark:border-white/10">
+									<svg
+										width="24"
+										height="24"
+										fill="none"
+										viewBox="0 0 24 24"
+										className="h-3 w-3 fill-zinc-900 pl-0.5"
+									>
+										<title>The landscape of choice</title>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
+											d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
+										/>
+									</svg>
+								</div>
+								<Text className="font-semibold text-zinc-950 sm:text-normal dark:text-white">
+									Recognizing patterns in past decisions
+								</Text>
+								<Text className="text-zinc-500 dark:text-zinc-400">17:21</Text>
+							</div>
+							<Text className="mt-2 pl-7">
+								Identyfying recurring themes in your decision-making history
+							</Text>
+						</li>
+
+						<li>
+							<div className="flex items-center gap-2">
+								<div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-zinc-950/10 dark:border-white/10">
+									<svg
+										width="24"
+										height="24"
+										fill="none"
+										viewBox="0 0 24 24"
+										className="h-3 w-3 fill-zinc-900 pl-0.5"
+									>
+										<title>The landscape of choice</title>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="1.5"
+											d="M18.25 12L5.75 5.75V18.25L18.25 12Z"
+										/>
+									</svg>
+								</div>
+								<Text className="font-semibold text-zinc-950 sm:text-normal dark:text-white">
+									Values, goals, ant the difference between them
+								</Text>
+								<Text className="text-zinc-500 dark:text-zinc-400">11:21</Text>
+							</div>
+							<Text className="mt-2 pl-7">
+								Understanding how values and goals influence your choices
+							</Text>
+						</li>
+					</ul>
+				</div>
+				<Text className="pt-2 pb-4 font-semibold text-zinc-950 dark:text-white">
 					Part 1
 				</Text>
 				<div>
