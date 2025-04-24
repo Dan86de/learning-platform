@@ -3,13 +3,13 @@ import { Text } from "@/components/catalyst/text";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute(
-	"/_authed/course/$courseName_/module/$moduleName",
+	"/_authed/product/$productName_/module/$moduleName",
 )({
 	component: ModuleComponent,
 });
 
 function ModuleComponent() {
-	const { courseName, moduleName } = Route.useParams();
+	const { productName, moduleName } = Route.useParams();
 
 	return (
 		<>

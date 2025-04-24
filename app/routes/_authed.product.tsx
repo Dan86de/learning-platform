@@ -31,10 +31,9 @@ import {
 	Cog8ToothIcon,
 	UserIcon,
 } from "@heroicons/react/20/solid";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_authed/course")({
+export const Route = createFileRoute("/_authed/product")({
 	component: RouteComponent,
 });
 
@@ -92,62 +91,62 @@ function RouteComponent() {
 					</CourseSidebarHeader>
 					<CourseSidebarBody>
 						<CourseSidebarSection>
-							<CourseSidebarLabel href="/course/head-full-of-code/module/orientation">
+							<CourseSidebarLabel href="/product/head-full-of-code/module/orientation">
 								Orientation
 							</CourseSidebarLabel>
-							<CourseSidebarItem href="/course/head-full-of-code/module/orientation/lesson/1">
+							<CourseSidebarItem href="/product/head-full-of-code/module/orientation/lesson/1">
 								The ladscape of choice
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/orientation/lesson/2">
+							<CourseSidebarItem href="/product/head-full-of-code/module/orientation/lesson/2">
 								Internal vs. external compass
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/orientation/lesson/3">
+							<CourseSidebarItem href="/product/head-full-of-code/module/orientation/lesson/3">
 								The stories you're living
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/orientation/lesson/4">
+							<CourseSidebarItem href="/product/head-full-of-code/module/orientation/lesson/4">
 								Recognizing patterns in past decisions
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/orientation/lesson/5">
+							<CourseSidebarItem href="/product/head-full-of-code/module/orientation/lesson/5">
 								Values, goals, and the difference between them
 							</CourseSidebarItem>
 						</CourseSidebarSection>
 						<CourseSidebarSection>
-							<CourseSidebarLabel href="/course/head-full-of-code/module/discernment">
+							<CourseSidebarLabel href="/product/head-full-of-code/module/discernment">
 								Discernment
 							</CourseSidebarLabel>
-							<CourseSidebarItem href="/course/head-full-of-code/module/discernment/lesson/1">
+							<CourseSidebarItem href="/product/head-full-of-code/module/discernment/lesson/1">
 								What makes a "good" decision, realy?
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/discernment/lesson/2">
+							<CourseSidebarItem href="/product/head-full-of-code/module/discernment/lesson/2">
 								Clarity vs. certainty: Learning to live without guarantees
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/discernment/lesson/3">
+							<CourseSidebarItem href="/product/head-full-of-code/module/discernment/lesson/3">
 								Assessing risk without catastrophizing
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/discernment/lesson/4">
+							<CourseSidebarItem href="/product/head-full-of-code/module/discernment/lesson/4">
 								Discomfort as data: What tension is trying to tell you
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/discernment/lesson/5">
+							<CourseSidebarItem href="/product/head-full-of-code/module/discernment/lesson/5">
 								How to ask better questions (of yourself and others)
 							</CourseSidebarItem>
 						</CourseSidebarSection>
 						<CourseSidebarSection>
-							<CourseSidebarLabel href="/course/head-full-of-code/module/direction">
+							<CourseSidebarLabel href="/product/head-full-of-code/module/direction">
 								Direction
 							</CourseSidebarLabel>
-							<CourseSidebarItem href="/course/head-full-of-code/module/direction/lesson/1">
+							<CourseSidebarItem href="/product/head-full-of-code/module/direction/lesson/1">
 								The trade-off equation: What you're always giving up
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/direction/lesson/2">
+							<CourseSidebarItem href="/product/head-full-of-code/module/direction/lesson/2">
 								Short-term vs. long-term thinking
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/direction/lesson/3">
+							<CourseSidebarItem href="/product/head-full-of-code/module/direction/lesson/3">
 								When logic and intuition disagree
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/direction/lesson/4">
+							<CourseSidebarItem href="/product/head-full-of-code/module/direction/lesson/4">
 								Making peace with incomplete information
 							</CourseSidebarItem>
-							<CourseSidebarItem href="/course/head-full-of-code/module/direction/lesson/5">
+							<CourseSidebarItem href="/product/head-full-of-code/module/direction/lesson/5">
 								Owning the decisions even if it's hard
 							</CourseSidebarItem>
 						</CourseSidebarSection>

@@ -15,12 +15,12 @@ import { Route as AuthedImport } from './routes/_authed'
 import { Route as IndexImport } from './routes/index'
 import { Route as SignUpSplatImport } from './routes/sign-up.$'
 import { Route as SignInSplatImport } from './routes/sign-in.$'
-import { Route as AuthedCourseImport } from './routes/_authed.course'
+import { Route as AuthedProductImport } from './routes/_authed.product'
 import { Route as AuthedAppImport } from './routes/_authed.app'
-import { Route as AuthedCourseCourseNameImport } from './routes/_authed.course.$courseName'
+import { Route as AuthedProductProductNameImport } from './routes/_authed.product.$productName'
 import { Route as AuthedAppProfileImport } from './routes/_authed.app.profile'
-import { Route as AuthedCourseCourseNameModuleModuleNameImport } from './routes/_authed.course.$courseName_.module.$moduleName'
-import { Route as AuthedCourseCourseNameModuleModuleNameLessonLessonNameImport } from './routes/_authed.course.$courseName_.module.$moduleName_.lesson.$lessonName'
+import { Route as AuthedProductProductNameModuleModuleNameImport } from './routes/_authed.product.$productName_.module.$moduleName'
+import { Route as AuthedProductProductNameModuleModuleNameLessonLessonNameImport } from './routes/_authed.product.$productName_.module.$moduleName_.lesson.$lessonName'
 
 // Create/Update Routes
 
@@ -47,9 +47,9 @@ const SignInSplatRoute = SignInSplatImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthedCourseRoute = AuthedCourseImport.update({
-  id: '/course',
-  path: '/course',
+const AuthedProductRoute = AuthedProductImport.update({
+  id: '/product',
+  path: '/product',
   getParentRoute: () => AuthedRoute,
 } as any)
 
@@ -59,10 +59,10 @@ const AuthedAppRoute = AuthedAppImport.update({
   getParentRoute: () => AuthedRoute,
 } as any)
 
-const AuthedCourseCourseNameRoute = AuthedCourseCourseNameImport.update({
-  id: '/$courseName',
-  path: '/$courseName',
-  getParentRoute: () => AuthedCourseRoute,
+const AuthedProductProductNameRoute = AuthedProductProductNameImport.update({
+  id: '/$productName',
+  path: '/$productName',
+  getParentRoute: () => AuthedProductRoute,
 } as any)
 
 const AuthedAppProfileRoute = AuthedAppProfileImport.update({
@@ -71,18 +71,18 @@ const AuthedAppProfileRoute = AuthedAppProfileImport.update({
   getParentRoute: () => AuthedAppRoute,
 } as any)
 
-const AuthedCourseCourseNameModuleModuleNameRoute =
-  AuthedCourseCourseNameModuleModuleNameImport.update({
-    id: '/$courseName_/module/$moduleName',
-    path: '/$courseName/module/$moduleName',
-    getParentRoute: () => AuthedCourseRoute,
+const AuthedProductProductNameModuleModuleNameRoute =
+  AuthedProductProductNameModuleModuleNameImport.update({
+    id: '/$productName_/module/$moduleName',
+    path: '/$productName/module/$moduleName',
+    getParentRoute: () => AuthedProductRoute,
   } as any)
 
-const AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute =
-  AuthedCourseCourseNameModuleModuleNameLessonLessonNameImport.update({
-    id: '/$courseName_/module/$moduleName_/lesson/$lessonName',
-    path: '/$courseName/module/$moduleName/lesson/$lessonName',
-    getParentRoute: () => AuthedCourseRoute,
+const AuthedProductProductNameModuleModuleNameLessonLessonNameRoute =
+  AuthedProductProductNameModuleModuleNameLessonLessonNameImport.update({
+    id: '/$productName_/module/$moduleName_/lesson/$lessonName',
+    path: '/$productName/module/$moduleName/lesson/$lessonName',
+    getParentRoute: () => AuthedProductRoute,
   } as any)
 
 // Populate the FileRoutesByPath interface
@@ -110,11 +110,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedAppImport
       parentRoute: typeof AuthedImport
     }
-    '/_authed/course': {
-      id: '/_authed/course'
-      path: '/course'
-      fullPath: '/course'
-      preLoaderRoute: typeof AuthedCourseImport
+    '/_authed/product': {
+      id: '/_authed/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof AuthedProductImport
       parentRoute: typeof AuthedImport
     }
     '/sign-in/$': {
@@ -138,26 +138,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedAppProfileImport
       parentRoute: typeof AuthedAppImport
     }
-    '/_authed/course/$courseName': {
-      id: '/_authed/course/$courseName'
-      path: '/$courseName'
-      fullPath: '/course/$courseName'
-      preLoaderRoute: typeof AuthedCourseCourseNameImport
-      parentRoute: typeof AuthedCourseImport
+    '/_authed/product/$productName': {
+      id: '/_authed/product/$productName'
+      path: '/$productName'
+      fullPath: '/product/$productName'
+      preLoaderRoute: typeof AuthedProductProductNameImport
+      parentRoute: typeof AuthedProductImport
     }
-    '/_authed/course/$courseName_/module/$moduleName': {
-      id: '/_authed/course/$courseName_/module/$moduleName'
-      path: '/$courseName/module/$moduleName'
-      fullPath: '/course/$courseName/module/$moduleName'
-      preLoaderRoute: typeof AuthedCourseCourseNameModuleModuleNameImport
-      parentRoute: typeof AuthedCourseImport
+    '/_authed/product/$productName_/module/$moduleName': {
+      id: '/_authed/product/$productName_/module/$moduleName'
+      path: '/$productName/module/$moduleName'
+      fullPath: '/product/$productName/module/$moduleName'
+      preLoaderRoute: typeof AuthedProductProductNameModuleModuleNameImport
+      parentRoute: typeof AuthedProductImport
     }
-    '/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName': {
-      id: '/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName'
-      path: '/$courseName/module/$moduleName/lesson/$lessonName'
-      fullPath: '/course/$courseName/module/$moduleName/lesson/$lessonName'
-      preLoaderRoute: typeof AuthedCourseCourseNameModuleModuleNameLessonLessonNameImport
-      parentRoute: typeof AuthedCourseImport
+    '/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName': {
+      id: '/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName'
+      path: '/$productName/module/$moduleName/lesson/$lessonName'
+      fullPath: '/product/$productName/module/$moduleName/lesson/$lessonName'
+      preLoaderRoute: typeof AuthedProductProductNameModuleModuleNameLessonLessonNameImport
+      parentRoute: typeof AuthedProductImport
     }
   }
 }
@@ -176,32 +176,32 @@ const AuthedAppRouteWithChildren = AuthedAppRoute._addFileChildren(
   AuthedAppRouteChildren,
 )
 
-interface AuthedCourseRouteChildren {
-  AuthedCourseCourseNameRoute: typeof AuthedCourseCourseNameRoute
-  AuthedCourseCourseNameModuleModuleNameRoute: typeof AuthedCourseCourseNameModuleModuleNameRoute
-  AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute: typeof AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute
+interface AuthedProductRouteChildren {
+  AuthedProductProductNameRoute: typeof AuthedProductProductNameRoute
+  AuthedProductProductNameModuleModuleNameRoute: typeof AuthedProductProductNameModuleModuleNameRoute
+  AuthedProductProductNameModuleModuleNameLessonLessonNameRoute: typeof AuthedProductProductNameModuleModuleNameLessonLessonNameRoute
 }
 
-const AuthedCourseRouteChildren: AuthedCourseRouteChildren = {
-  AuthedCourseCourseNameRoute: AuthedCourseCourseNameRoute,
-  AuthedCourseCourseNameModuleModuleNameRoute:
-    AuthedCourseCourseNameModuleModuleNameRoute,
-  AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute:
-    AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute,
+const AuthedProductRouteChildren: AuthedProductRouteChildren = {
+  AuthedProductProductNameRoute: AuthedProductProductNameRoute,
+  AuthedProductProductNameModuleModuleNameRoute:
+    AuthedProductProductNameModuleModuleNameRoute,
+  AuthedProductProductNameModuleModuleNameLessonLessonNameRoute:
+    AuthedProductProductNameModuleModuleNameLessonLessonNameRoute,
 }
 
-const AuthedCourseRouteWithChildren = AuthedCourseRoute._addFileChildren(
-  AuthedCourseRouteChildren,
+const AuthedProductRouteWithChildren = AuthedProductRoute._addFileChildren(
+  AuthedProductRouteChildren,
 )
 
 interface AuthedRouteChildren {
   AuthedAppRoute: typeof AuthedAppRouteWithChildren
-  AuthedCourseRoute: typeof AuthedCourseRouteWithChildren
+  AuthedProductRoute: typeof AuthedProductRouteWithChildren
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedAppRoute: AuthedAppRouteWithChildren,
-  AuthedCourseRoute: AuthedCourseRouteWithChildren,
+  AuthedProductRoute: AuthedProductRouteWithChildren,
 }
 
 const AuthedRouteWithChildren =
@@ -211,26 +211,26 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
   '/app': typeof AuthedAppRouteWithChildren
-  '/course': typeof AuthedCourseRouteWithChildren
+  '/product': typeof AuthedProductRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/app/profile': typeof AuthedAppProfileRoute
-  '/course/$courseName': typeof AuthedCourseCourseNameRoute
-  '/course/$courseName/module/$moduleName': typeof AuthedCourseCourseNameModuleModuleNameRoute
-  '/course/$courseName/module/$moduleName/lesson/$lessonName': typeof AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute
+  '/product/$productName': typeof AuthedProductProductNameRoute
+  '/product/$productName/module/$moduleName': typeof AuthedProductProductNameModuleModuleNameRoute
+  '/product/$productName/module/$moduleName/lesson/$lessonName': typeof AuthedProductProductNameModuleModuleNameLessonLessonNameRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof AuthedRouteWithChildren
   '/app': typeof AuthedAppRouteWithChildren
-  '/course': typeof AuthedCourseRouteWithChildren
+  '/product': typeof AuthedProductRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/app/profile': typeof AuthedAppProfileRoute
-  '/course/$courseName': typeof AuthedCourseCourseNameRoute
-  '/course/$courseName/module/$moduleName': typeof AuthedCourseCourseNameModuleModuleNameRoute
-  '/course/$courseName/module/$moduleName/lesson/$lessonName': typeof AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute
+  '/product/$productName': typeof AuthedProductProductNameRoute
+  '/product/$productName/module/$moduleName': typeof AuthedProductProductNameModuleModuleNameRoute
+  '/product/$productName/module/$moduleName/lesson/$lessonName': typeof AuthedProductProductNameModuleModuleNameLessonLessonNameRoute
 }
 
 export interface FileRoutesById {
@@ -238,13 +238,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authed': typeof AuthedRouteWithChildren
   '/_authed/app': typeof AuthedAppRouteWithChildren
-  '/_authed/course': typeof AuthedCourseRouteWithChildren
+  '/_authed/product': typeof AuthedProductRouteWithChildren
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
   '/_authed/app/profile': typeof AuthedAppProfileRoute
-  '/_authed/course/$courseName': typeof AuthedCourseCourseNameRoute
-  '/_authed/course/$courseName_/module/$moduleName': typeof AuthedCourseCourseNameModuleModuleNameRoute
-  '/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName': typeof AuthedCourseCourseNameModuleModuleNameLessonLessonNameRoute
+  '/_authed/product/$productName': typeof AuthedProductProductNameRoute
+  '/_authed/product/$productName_/module/$moduleName': typeof AuthedProductProductNameModuleModuleNameRoute
+  '/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName': typeof AuthedProductProductNameModuleModuleNameLessonLessonNameRoute
 }
 
 export interface FileRouteTypes {
@@ -253,37 +253,37 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/app'
-    | '/course'
+    | '/product'
     | '/sign-in/$'
     | '/sign-up/$'
     | '/app/profile'
-    | '/course/$courseName'
-    | '/course/$courseName/module/$moduleName'
-    | '/course/$courseName/module/$moduleName/lesson/$lessonName'
+    | '/product/$productName'
+    | '/product/$productName/module/$moduleName'
+    | '/product/$productName/module/$moduleName/lesson/$lessonName'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | ''
     | '/app'
-    | '/course'
+    | '/product'
     | '/sign-in/$'
     | '/sign-up/$'
     | '/app/profile'
-    | '/course/$courseName'
-    | '/course/$courseName/module/$moduleName'
-    | '/course/$courseName/module/$moduleName/lesson/$lessonName'
+    | '/product/$productName'
+    | '/product/$productName/module/$moduleName'
+    | '/product/$productName/module/$moduleName/lesson/$lessonName'
   id:
     | '__root__'
     | '/'
     | '/_authed'
     | '/_authed/app'
-    | '/_authed/course'
+    | '/_authed/product'
     | '/sign-in/$'
     | '/sign-up/$'
     | '/_authed/app/profile'
-    | '/_authed/course/$courseName'
-    | '/_authed/course/$courseName_/module/$moduleName'
-    | '/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName'
+    | '/_authed/product/$productName'
+    | '/_authed/product/$productName_/module/$moduleName'
+    | '/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName'
   fileRoutesById: FileRoutesById
 }
 
@@ -324,7 +324,7 @@ export const routeTree = rootRoute
       "filePath": "_authed.tsx",
       "children": [
         "/_authed/app",
-        "/_authed/course"
+        "/_authed/product"
       ]
     },
     "/_authed/app": {
@@ -334,13 +334,13 @@ export const routeTree = rootRoute
         "/_authed/app/profile"
       ]
     },
-    "/_authed/course": {
-      "filePath": "_authed.course.tsx",
+    "/_authed/product": {
+      "filePath": "_authed.product.tsx",
       "parent": "/_authed",
       "children": [
-        "/_authed/course/$courseName",
-        "/_authed/course/$courseName_/module/$moduleName",
-        "/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName"
+        "/_authed/product/$productName",
+        "/_authed/product/$productName_/module/$moduleName",
+        "/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName"
       ]
     },
     "/sign-in/$": {
@@ -353,17 +353,17 @@ export const routeTree = rootRoute
       "filePath": "_authed.app.profile.tsx",
       "parent": "/_authed/app"
     },
-    "/_authed/course/$courseName": {
-      "filePath": "_authed.course.$courseName.tsx",
-      "parent": "/_authed/course"
+    "/_authed/product/$productName": {
+      "filePath": "_authed.product.$productName.tsx",
+      "parent": "/_authed/product"
     },
-    "/_authed/course/$courseName_/module/$moduleName": {
-      "filePath": "_authed.course.$courseName_.module.$moduleName.tsx",
-      "parent": "/_authed/course"
+    "/_authed/product/$productName_/module/$moduleName": {
+      "filePath": "_authed.product.$productName_.module.$moduleName.tsx",
+      "parent": "/_authed/product"
     },
-    "/_authed/course/$courseName_/module/$moduleName_/lesson/$lessonName": {
-      "filePath": "_authed.course.$courseName_.module.$moduleName_.lesson.$lessonName.tsx",
-      "parent": "/_authed/course"
+    "/_authed/product/$productName_/module/$moduleName_/lesson/$lessonName": {
+      "filePath": "_authed.product.$productName_.module.$moduleName_.lesson.$lessonName.tsx",
+      "parent": "/_authed/product"
     }
   }
 }

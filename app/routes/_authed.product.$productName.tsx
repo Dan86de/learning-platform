@@ -6,7 +6,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export const Route = createFileRoute("/_authed/course/$courseName")({
+export const Route = createFileRoute("/_authed/product/$productName")({
 	component: CourseOverviewComponent,
 });
 

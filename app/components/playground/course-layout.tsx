@@ -138,7 +138,7 @@ export function CourseSidebarLayout({
 					<div className="grow-1" />
 					<div className="flex gap-6 text-sm">
 						<Link to="/app">Home</Link>
-						<Link to="/course/head-full-of-code">Course</Link>
+						<Link to="/product/$productName">Product</Link>
 						<Link>Interviews</Link>
 						<Link>Resources</Link>
 					</div>
