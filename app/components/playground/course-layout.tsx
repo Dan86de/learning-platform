@@ -60,8 +60,8 @@ export function CourseSidebarLayout({
 	navbar: React.ReactNode;
 	sidebar: React.ReactNode;
 }>) {
-	const [showSidebar, setShowSidebar] = useState(true);
-	const [showDesktopSidebar, setShowDesktopSidebar] = useState(true);
+	const [showSidebar, setShowSidebar] = useState(false);
+	const [showDesktopSidebar, setShowDesktopSidebar] = useState(false);
 
 	return (
 		<div className="relative isolate flex h-screen min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">

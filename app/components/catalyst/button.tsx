@@ -65,7 +65,7 @@ const styles = {
 		// Optical border, implemented as the button background to avoid corner artifacts
 		"border-transparent bg-(--btn-border) rounded-3xl",
 		// Spacing
-		"px-[calc(--spacing(2)-1px)] py-[calc(--spacing(2)-1px)] sm:px-[calc(--spacing(3)-3px)] sm:py-[--spacing(1)] sm:text-sm/6",
+		"px-[calc(--spacing(2)-1px)] py-[calc(--spacing(1)-1px)] sm:px-[calc(--spacing(3)-3px)] sm:py-[--spacing(1)] sm:text-sm/6",
 		// Dark mode: border is rendered on `after` so background is set to button background
 		"dark:bg-(--btn-bg)",
 		// Button background, implemented as foreground layer to stack on top of pseudo-border layer
@@ -200,7 +200,12 @@ type ButtonProps = (
 	  }
 	| { color?: never; outline: true; plain?: never; round?: never }
 	| { color?: never; outline?: never; plain: true; round?: never }
-	| { color?: never; outline?: never; plain?: never; round: true }
+	| {
+			color?: keyof typeof styles.colors;
+			outline?: never;
+			plain?: never;
+			round: true;
+	  }
 ) & { className?: string; children: React.ReactNode } & (
 		| Omit<Headless.ButtonProps, "as" | "className">
 		| Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
